@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#eef4f7" />
+  <title>Micro · Ubica tu bus</title>
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <div id="map" aria-label="Mapa de ubicación del bus"></div>
+    <div class="veil"></div>
+
+    <section class="search-shell glass" id="searchShell">
+      <div class="brand-row">
+        <div class="bus-symbol" aria-hidden="true">▰</div>
+        <div>
+          <p class="eyebrow">RED · Santiago</p>
+          <h1>¿Dónde viene mi micro?</h1>
+        </div>
+      </div>
+      <p class="intro">Ingresa la patente del bus para ver su última posición GPS disponible.</p>
+      <form id="searchForm" autocomplete="off">
+        <label for="plate">Patente</label>
+        <div class="input-row">
+          <input id="plate" name="plate" inputmode="text" maxlength="8" placeholder="Ej. FLXG78" autocapitalize="characters" spellcheck="false" />
+          <button id="searchButton" type="submit">Buscar</button>
+        </div>
+      </form>
+      <p class="hint">Consulta puntual. No guardamos patentes ni historial de ubicaciones.</p>
+    </section>
+
+    <section class="result glass hidden" id="result" aria-live="polite">
+      <div class="result-top">
+        <div>
+          <p class="eyebrow" id="resultState">BUS LOCALIZADO</p>
+          <h2 id="resultPlate">—</h2>
+        </div>
+        <button class="close" id="closeResult" aria-label="Cerrar resultado">×</button>
+      </div>
+      <div class="facts">
+        <div><span>Servicio</span><strong id="route">—</strong></div>
+        <div><span>Velocidad</span><strong id="speed">—</strong></div>
+        <div><span>GPS</span><strong id="age">—</strong></div>
+      </div>
+      <p class="status" id="status"></p>
+      <button class="secondary" id="newSearch">Buscar otra patente</button>
+    </section>
+
+    <div class="toast glass hidden" id="toast" role="status"></div>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
