@@ -1,42 +1,21 @@
 <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#eef4f7" />
-  <title>Sigue a Forestín en la 411</title>
-  <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="app">
-    <div id="map" aria-label="Mapa de ubicación de la 411"></div>
-    <div class="veil"></div>
-    <section class="search-shell glass" id="searchShell">
-      <div class="brand-row">
-        <div class="forestin" aria-hidden="true"><span class="hat">▲</span><span class="face">F</span></div>
-        <div><p class="eyebrow">FORESTÍN · CAMINO A CASA</p><h1>Sigue a Forestín en la 411</h1></div>
-      </div>
-      <p class="intro">Cuando Forestín se suba a la 411, ingresa la patente y podrás seguir su micro en el mapa hasta casa.</p>
-      <div class="route-lock"><span>Recorrido</span><strong>411</strong><small>Solo mostraremos buses del 411</small></div>
-      <form id="searchForm" autocomplete="off">
-        <label for="plate">Patente de la micro</label>
-        <div class="input-row">
-          <input id="plate" name="plate" inputmode="text" maxlength="8" placeholder="Ej. FLXG78" autocapitalize="characters" spellcheck="false" />
-          <button id="searchButton" type="submit">Seguir</button>
-        </div>
-      </form>
-      <p class="hint">Después agregaremos tus puntos del camino a casa para avisarte por dónde va Forestín.</p>
-    </section>
-    <section class="result glass hidden" id="result" aria-live="polite">
-      <div class="result-top"><div><p class="eyebrow" id="resultState">FORESTÍN EN MOVIMIENTO</p><h2 id="resultPlate">—</h2></div><button class="close" id="closeResult" aria-label="Cerrar resultado">×</button></div>
-      <div class="facts"><div><span>Recorrido</span><strong id="route">411</strong></div><div><span>Velocidad</span><strong id="speed">—</strong></div><div><span>GPS</span><strong id="age">—</strong></div></div>
-      <p class="status" id="status"></p><button class="secondary" id="newSearch">Cambiar patente</button>
-    </section>
-    <div class="toast glass hidden" id="toast" role="status"></div>
-  </main>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#dff4ff"><title>Sigue a Forestín en la 411</title><link rel="stylesheet" href="styles.css"></head>
+<body><main class="app">
+<header><div class="forestin-logo"><span>🌲</span><b>F</b></div><div><p>FORESTÍN · CAMINO A CASA</p><h1>Sigue a Forestín en la 411</h1></div></header>
+<section class="journey" aria-label="Camino desde el trabajo hasta casa">
+<div class="sky"><span class="cloud c1">☁</span><span class="cloud c2">☁</span></div>
+<div class="place work"><div class="place-icon">🏢</div><strong>Trabajo</strong><small>Metro Pedro de Valdivia</small></div>
+<div class="place home"><div class="place-icon">🏠</div><strong>Casa</strong><small>Kennedy · Gerónimo de Alderete</small></div>
+<svg class="road" viewBox="0 0 1000 330" preserveAspectRatio="none" aria-hidden="true"><path class="road-shadow" d="M80 225 C240 70 390 310 535 175 S790 80 920 205"/><path id="routePath" class="road-line" d="M80 225 C240 70 390 310 535 175 S790 80 920 205"/></svg>
+<div id="bus" class="bus hidden" aria-label="Micro 411 de Forestín"><div class="forestin-head">🌲</div><div class="bus-body"><span>411</span><i>● ●</i></div></div>
+<div class="road-dots">• • • • • • • • •</div>
+</section>
+<section class="panel glass">
+<div class="status-row"><div><span class="live-dot"></span><small>411 EN VIVO</small><h2 id="headline">Buscando a Forestín…</h2></div><button id="refresh" type="button">Actualizar</button></div>
+<p id="message">Buscaremos automáticamente las micros 411 que estén viajando desde el trabajo hacia casa.</p>
+<div class="progress"><div id="progressFill"></div></div><div class="progress-labels"><span>Trabajo</span><strong id="percent">—</strong><span>Casa</span></div>
+<div id="details" class="details hidden"><span id="plate">—</span><span id="speed">—</span><span id="age">—</span></div>
+<p class="privacy">Solo mostramos el avance actual de la 411. No guardamos historial.</p>
+</section>
+<div id="toast" class="toast glass hidden" role="status"></div>
+</main><script src="app.js"></script></body></html>
