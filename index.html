@@ -4,52 +4,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#eef4f7" />
-  <title>Micro · Ubica tu bus</title>
+  <title>Sigue a Forestín en la 411</title>
   <link rel="preconnect" href="https://unpkg.com" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="app">
-    <div id="map" aria-label="Mapa de ubicación del bus"></div>
+    <div id="map" aria-label="Mapa de ubicación de la 411"></div>
     <div class="veil"></div>
-
     <section class="search-shell glass" id="searchShell">
       <div class="brand-row">
-        <div class="bus-symbol" aria-hidden="true">▰</div>
-        <div>
-          <p class="eyebrow">RED · Santiago</p>
-          <h1>¿Dónde viene mi micro?</h1>
-        </div>
+        <div class="forestin" aria-hidden="true"><span class="hat">▲</span><span class="face">F</span></div>
+        <div><p class="eyebrow">FORESTÍN · CAMINO A CASA</p><h1>Sigue a Forestín en la 411</h1></div>
       </div>
-      <p class="intro">Ingresa la patente del bus para ver su última posición GPS disponible.</p>
+      <p class="intro">Cuando Forestín se suba a la 411, ingresa la patente y podrás seguir su micro en el mapa hasta casa.</p>
+      <div class="route-lock"><span>Recorrido</span><strong>411</strong><small>Solo mostraremos buses del 411</small></div>
       <form id="searchForm" autocomplete="off">
-        <label for="plate">Patente</label>
+        <label for="plate">Patente de la micro</label>
         <div class="input-row">
           <input id="plate" name="plate" inputmode="text" maxlength="8" placeholder="Ej. FLXG78" autocapitalize="characters" spellcheck="false" />
-          <button id="searchButton" type="submit">Buscar</button>
+          <button id="searchButton" type="submit">Seguir</button>
         </div>
       </form>
-      <p class="hint">Consulta puntual. No guardamos patentes ni historial de ubicaciones.</p>
+      <p class="hint">Después agregaremos tus puntos del camino a casa para avisarte por dónde va Forestín.</p>
     </section>
-
     <section class="result glass hidden" id="result" aria-live="polite">
-      <div class="result-top">
-        <div>
-          <p class="eyebrow" id="resultState">BUS LOCALIZADO</p>
-          <h2 id="resultPlate">—</h2>
-        </div>
-        <button class="close" id="closeResult" aria-label="Cerrar resultado">×</button>
-      </div>
-      <div class="facts">
-        <div><span>Servicio</span><strong id="route">—</strong></div>
-        <div><span>Velocidad</span><strong id="speed">—</strong></div>
-        <div><span>GPS</span><strong id="age">—</strong></div>
-      </div>
-      <p class="status" id="status"></p>
-      <button class="secondary" id="newSearch">Buscar otra patente</button>
+      <div class="result-top"><div><p class="eyebrow" id="resultState">FORESTÍN EN MOVIMIENTO</p><h2 id="resultPlate">—</h2></div><button class="close" id="closeResult" aria-label="Cerrar resultado">×</button></div>
+      <div class="facts"><div><span>Recorrido</span><strong id="route">411</strong></div><div><span>Velocidad</span><strong id="speed">—</strong></div><div><span>GPS</span><strong id="age">—</strong></div></div>
+      <p class="status" id="status"></p><button class="secondary" id="newSearch">Cambiar patente</button>
     </section>
-
     <div class="toast glass hidden" id="toast" role="status"></div>
   </main>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
