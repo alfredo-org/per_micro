@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#dff4ff"><title>Sigue a Forestín en la 411</title><link rel="stylesheet" href="styles.css"></head>
 <body><main class="app">
+<div id="mainScene" class="main-scene">
 <header><div class="forestin-logo"><div class="forestin-face mini"><div class="helmet"><span>CONAF</span></div><div class="ears"></div><div class="face"><div class="eyes"><i></i><i></i></div><div class="nose"></div><div class="muzzle">FORESTÍN</div></div></div></div><div><p>FORESTÍN · CAMINO A CASA</p><h1>Sigue a Forestín en la 411</h1></div></header>
 <section class="journey" aria-label="Camino desde el trabajo hasta casa">
 <div class="sky"><span class="cloud c1">☁</span><span class="cloud c2">☁</span></div>
@@ -10,4 +11,12 @@
 <div id="bus" class="bus hidden" aria-label="Forestín viajando en la micro 411"><div class="forestin-rider"><div class="forestin-face rider"><div class="helmet"><span>CONAF</span></div><div class="ears"></div><div class="face"><div class="eyes"><i></i><i></i></div><div class="nose"></div><div class="muzzle">FORESTÍN</div></div></div></div><div class="bus-body"><div class="windshield"><span></span><span></span></div><div class="route-number">411</div><div class="lights"><i></i><i></i></div><div class="bumper"></div><div class="wheels"><b></b><b></b></div></div></div>
 </section>
 <section class="panel glass"><div class="status-row"><div><span class="live-dot"></span><small>411 EN VIVO</small><h2 id="headline">Buscando a Forestín…</h2></div><button id="refresh" type="button">Actualizar</button></div><p id="message">Buscaremos automáticamente las micros 411 que estén viajando desde el trabajo hacia casa.</p><div class="progress"><div id="progressFill"></div></div><div class="progress-labels"><span>Trabajo</span><strong id="percent">—</strong><span>Casa</span></div><div id="details" class="details hidden"><span id="plate">—</span><span id="speed">—</span><span id="age">—</span></div><p class="privacy">Solo mostramos el avance actual de la 411. No guardamos historial.</p></section>
+</div>
+<section id="arrivalCelebration" class="arrival-celebration hidden" aria-live="polite" aria-label="Forestín llegó a casa">
+<div class="firework fw1"></div><div class="firework fw2"></div><div class="firework fw3"></div>
+<div class="confetti" aria-hidden="true"></div>
+<div class="arrival-card">
+<div class="arrival-forestin"><div class="forestin-face celebration"><div class="helmet"><span>CONAF</span></div><div class="ears"></div><div class="face"><div class="eyes"><i></i><i></i></div><div class="nose"></div><div class="muzzle">FORESTÍN</div></div></div></div>
+<p class="arrival-kicker">¡MISIÓN CUMPLIDA!</p><h2>¡Forestín llegó a casa!</h2><p>La 411 completó el camino. 🎉</p>
+</div></section>
 <div id="toast" class="toast glass hidden" role="status"></div></main><script src="app.js"></script></body></html>
