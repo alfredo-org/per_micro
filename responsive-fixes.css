@@ -1,14 +1,14 @@
 /* Ajustes de composición responsiva del recorrido */
-/* Fondo más suave: cielo claro arriba y terreno verde natural abajo */
-html,body{background:#e8f3f7}
-body{background:linear-gradient(180deg,#dff2fb 0%,#eef7f5 48%,#c9e6b8 48%,#b7dca3 100%)}
-.app{overflow-x:hidden;background:linear-gradient(180deg,#dff2fb 0%,#eef7f5 48%,#c9e6b8 48%,#b7dca3 100%)}
-.main-scene{background:transparent}
-.journey{overflow:hidden}
+/* Experiencia de una sola pantalla: sin scroll vertical ni rebote */
+html,body{width:100%;height:100%;min-height:100%;overflow:hidden;overscroll-behavior:none;touch-action:manipulation;background:#e8f3f7}
+body{position:fixed;inset:0;background:linear-gradient(180deg,#dff2fb 0%,#eef7f5 48%,#c9e6b8 48%,#b7dca3 100%)}
+.app{width:100%;height:100dvh;min-height:0;overflow:hidden;background:linear-gradient(180deg,#dff2fb 0%,#eef7f5 48%,#c9e6b8 48%,#b7dca3 100%);display:flex;flex-direction:column;padding:max(8px,env(safe-area-inset-top)) 14px max(8px,env(safe-area-inset-bottom))}
+.main-scene{height:100%;min-height:0;background:transparent;display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.journey{overflow:hidden;min-height:0;height:auto}
 .sky{background:linear-gradient(180deg,rgba(169,221,247,.52) 0%,rgba(229,245,250,.26) 68%,transparent 100%)}
 
 /* Cabecera Forestín: celeste institucional del diseño y tipografía verde */
-header{margin:-14px -14px 4px;width:calc(100% + 28px);padding:max(14px,env(safe-area-inset-top)) 16px 12px;background:#9edcff;border-radius:0 0 24px 24px;box-shadow:0 8px 22px rgba(48,111,139,.12)}
+header{margin:-8px -14px 2px;width:calc(100% + 28px);padding:max(8px,env(safe-area-inset-top)) 16px 8px;background:#9edcff;border-radius:0 0 22px 22px;box-shadow:0 8px 22px rgba(48,111,139,.12)}
 header p{color:#168957;font-weight:950}
 header h1{color:#168957;text-shadow:none}
 
@@ -17,9 +17,9 @@ header h1{color:#168957;text-shadow:none}
 .place strong{font-size:clamp(12px,3.8vw,15px);line-height:1.05;max-width:100%;color:#17384a;text-shadow:0 1px 2px rgba(255,255,255,.8)}
 .place small{font-size:clamp(7px,2.25vw,9px);line-height:1.12;max-width:92px;overflow-wrap:anywhere;color:#365d68}
 .place-icon{font-size:clamp(44px,13vw,58px)}
-.home .place-icon{font-size:clamp(48px,14vw,62px)}
+.home .place-icon{font-size:clamp(48px,14vw,62px);transform:translateX(8px)}
 .work{left:clamp(0px,2vw,10px);bottom:47px}
-.home{right:clamp(0px,2vw,10px);bottom:58px}
+.home{right:clamp(-5px,0vw,0px);bottom:58px}
 
 /* Carretera: asfalto gris oscuro con línea central clara */
 .road{left:0;width:100%;bottom:34px;height:260px;filter:drop-shadow(0 7px 5px rgba(36,48,53,.22))}
@@ -56,27 +56,40 @@ header h1{color:#168957;text-shadow:none}
 .forestin-face .tooth.right{border-left:1.5px solid #2b211b}
 .forestin-face .tooth.left:after{content:"";position:absolute;right:-1.5px;top:1px;width:1.5px;height:16px;background:#211914;border-radius:2px;z-index:5}
 
-/* Evita textos saliendo del viewport */
-.panel{max-width:100%;overflow:hidden}
+/* Panel compacto para mantener todo visible sin scroll */
+.panel{max-width:100%;overflow:hidden;margin-top:2px;padding:12px 14px;border-radius:22px}
 .status-row{min-width:0}
 .status-row>div{max-width:calc(100% - 92px)}
 #headline{overflow-wrap:anywhere}
 .panel p,.privacy{max-width:100%;overflow-wrap:anywhere}
+.panel p{margin:6px 0;font-size:11px}
+.privacy{margin-top:5px!important;font-size:8px!important}
+.change-plate{margin-top:6px}
 .details{min-width:0}
 .details span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media(max-height:740px){
+  header{padding-top:max(6px,env(safe-area-inset-top));padding-bottom:6px}
+  .forestin-logo{width:42px;height:42px;flex-basis:42px}
+  .journey{transform:scale(.94);transform-origin:center bottom;width:106.4%;margin-left:-3.2%}
+  .panel{padding:9px 12px}
+  .panel p{margin:4px 0}
+  .privacy{display:none}
+}
 
 @media(max-width:390px){
   .app{padding-left:10px;padding-right:10px}
   header{margin-left:-10px;margin-right:-10px;width:calc(100% + 20px);padding-left:12px;padding-right:12px}
-  .journey{width:calc(100% + 20px);margin-left:-10px;margin-right:-10px;min-height:350px}
+  .journey{width:calc(100% + 20px);margin-left:-10px;margin-right:-10px}
   .place{width:82px;max-width:23vw}
   .work{left:2px;bottom:45px}
-  .home{right:2px;bottom:55px}
+  .home{right:-4px;bottom:55px}
+  .home .place-icon{transform:translateX(7px)}
   .road{height:245px;bottom:31px}
   .bus{width:72px}
   .bus-body{left:7px;right:7px}
   .bus-line-number{font-size:7px}
-  .panel{padding:14px}
+  .panel{padding:10px 12px}
   .status-row>div{max-width:calc(100% - 82px)}
 }
 
@@ -91,5 +104,5 @@ header h1{color:#168957;text-shadow:none}
 
 @media(min-width:481px){
   .work{left:10px}
-  .home{right:10px}
+  .home{right:0}
 }
