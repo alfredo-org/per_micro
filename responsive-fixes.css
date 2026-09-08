@@ -29,6 +29,11 @@
 .smoke{right:-10px;bottom:-9px}
 /* No tocar .forestin-face.rider: mantiene el tamaño actual de Forestín */
 
+/* Los dos incisivos del coipo se leen como dientes separados */
+.forestin-face .tooth.left{border-right:1.5px solid #2b211b}
+.forestin-face .tooth.right{border-left:1.5px solid #2b211b}
+.forestin-face .tooth.left:after{content:"";position:absolute;right:-1.5px;top:1px;width:1.5px;height:16px;background:#211914;border-radius:2px;z-index:5}
+
 /* Evita textos saliendo del área verde / viewport */
 .panel{max-width:100%;overflow:hidden}
 .status-row{min-width:0}
