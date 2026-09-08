@@ -1,5 +1,8 @@
 /* Ajustes de composición responsiva del recorrido */
-.app{overflow-x:hidden}
+html,body{background:#9edcff}
+body{background:#9edcff}
+.app{overflow-x:hidden;background:#9edcff}
+.main-scene{background:#9edcff}
 .journey{overflow:hidden}
 
 /* Trabajo y casa quedan anclados visualmente a los extremos del camino */
