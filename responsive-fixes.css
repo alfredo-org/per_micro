@@ -17,7 +17,8 @@
 /* La carrocería se achica, Forestín conserva exactamente su escala */
 .bus{width:78px;height:96px}
 .bus-body{left:6px;right:6px;top:25px;height:67px;border-width:3px;border-radius:18px 18px 12px 12px}
-.bus-white-band{top:32px;height:14px}
+.bus-white-band{top:32px;height:14px;display:flex;align-items:center;justify-content:center}
+.bus-line-number{position:relative;z-index:3;color:#c9232d;font-size:8px;line-height:1;font-weight:900;letter-spacing:.3px;text-shadow:0 1px 0 rgba(255,255,255,.75)}
 .windshield{left:7px;right:7px;top:6px;height:24px}
 .route-number{top:33px;font-size:14px;padding:1px 6px}
 .lights{left:7px;right:7px;bottom:6px}
@@ -61,6 +62,7 @@
   .road{height:245px;bottom:31px}
   .bus{width:72px}
   .bus-body{left:7px;right:7px}
+  .bus-line-number{font-size:7px}
   .panel{padding:14px}
   .status-row>div{max-width:calc(100% - 82px)}
 }
