@@ -29,6 +29,11 @@
 .smoke{right:-10px;bottom:-9px}
 /* No tocar .forestin-face.rider: mantiene el tamaño actual de Forestín */
 
+/* Hocico limpio: sin placa rosada, solo boca e incisivos sobre el rostro */
+.forestin-face .muzzle{background:transparent;box-shadow:none;width:70px;height:48px;top:136px}
+.forestin-face .mouth{top:9px;width:46px;height:25px}
+.forestin-face .mouth:after{display:none}
+
 /* Los dos incisivos del coipo se leen como dientes separados */
 .forestin-face .tooth.left{border-right:1.5px solid #2b211b}
 .forestin-face .tooth.right{border-left:1.5px solid #2b211b}
