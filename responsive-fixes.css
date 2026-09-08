@@ -25,8 +25,12 @@
 .bumper{left:14px;right:14px;bottom:1px}
 .wheels{left:12px;right:12px;bottom:-10px}
 .wheels b{width:16px;height:16px;border-width:3px}
-.exhaust{right:8px;bottom:-6px;width:15px}
-.smoke{right:-10px;bottom:-9px}
+
+/* La micro avanza de izquierda a derecha: escape y humo quedan detrás, a la izquierda */
+.exhaust{left:4px;right:auto;bottom:-6px;width:15px;transform:rotate(-10deg)}
+.smoke{left:-20px;right:auto;bottom:-9px}
+.smoke i{left:4px;right:auto;animation-name:exhaustSmokeLeft}
+@keyframes exhaustSmokeLeft{0%{opacity:0;transform:translate(0,0) scale(.45)}20%{opacity:.5}100%{opacity:0;transform:translate(-25px,-22px) scale(1.8)}}
 /* No tocar .forestin-face.rider: mantiene el tamaño actual de Forestín */
 
 /* Hocico limpio: sin placa rosada, solo boca e incisivos sobre el rostro */
