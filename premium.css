@@ -86,3 +86,45 @@ header h1{color:var(--ink);font-size:clamp(20px,5.6vw,26px);font-weight:700;lett
 .gate-divider span{font-size:13px;color:var(--muted)}
 .plate-input-wrap input::placeholder{color:#aeaeb2}
 .privacy{font-size:11px!important;color:var(--muted)!important}
+
+/* === Propuesta diseño 2026-09-29: ajustes visuales #mainScene 390px === */
+/* No modifica app.js ni el tamaño de .forestin-face.rider (ver nota en responsive-fixes.css) */
+
+/* 3) Header y .panel comparten el mismo inset lateral que la tarjeta del panel */
+header{
+  margin:0 0 8px;
+  width:100%;
+  border-radius:24px;
+}
+
+/* 2) Forestín se separa ~8-10px del techo de la micro (evita el solape visual) */
+.forestin-rider{
+  top:-56px;
+  filter:drop-shadow(0 10px 6px rgba(20,40,50,.16));
+}
+
+/* 1) Cielo: degradado más gradual + nubes redistribuidas en toda la franja vacía */
+.sky{
+  background:linear-gradient(180deg,
+    rgba(186,222,244,.55) 0%,
+    rgba(210,235,247,.32) 45%,
+    rgba(240,246,249,.18) 78%,
+    transparent 100%);
+}
+.cloud-a{top:8%}
+.cloud-b{top:24%}
+.cloud-c{top:38%}
+.sky:before{
+  content:"";position:absolute;left:34%;top:14%;
+  width:54px;height:16px;border-radius:20px;
+  background:rgba(255,255,255,.7);opacity:.65;pointer-events:none;
+}
+.sky:after{
+  content:"";position:absolute;left:58%;top:31%;
+  width:90px;height:24px;border-radius:30px;
+  background:rgba(255,255,255,.8);opacity:.6;pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .forestin-rider{filter:none}
+}
+@media(prefers-reduced-motion:reduce){.bus{transition:none!important}}
